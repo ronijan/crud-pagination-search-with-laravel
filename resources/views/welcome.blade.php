@@ -22,8 +22,10 @@
                     <th scope="col">#</th>
                     <th scope="col">Teaserbild</th>
                     <th scope="col">Dachzeile</th>
-                    <th scope="col">ueberschrift</th>
+                    <th scope="col">Überschrift</th>
                     <th scope="col">Teasertext</th>
+                    <th scope="col">Actions</th>
+                    <th scope="col"></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -35,6 +37,12 @@
                         <td>{{$article->dachzeile}}</td>
                         <td>{{$article->ueberschrift}}</td>
                         <td>{{$article->teasertext}}</td>
+                        <td class="text-right">
+                            <a href="#">view</a>
+                        </td>
+                        <td class="text-right">
+                            <a href="#" class="text-danger">delete</a>
+                        </td>
                     </tr>
                 @endforeach
 
