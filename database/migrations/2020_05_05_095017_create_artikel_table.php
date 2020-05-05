@@ -14,7 +14,8 @@ class CreateArtikelTable extends Migration
     public function up()
     {
         Schema::create('artikel', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
+            $table->unsignedBigInteger('user_id')->unsigned()->index()->references('id')->on('users')->onDelete('cascade');
             $table->string('teaserbild')->default(null);
             $table->string('dachzeile');
             $table->string('ueberschrift');
