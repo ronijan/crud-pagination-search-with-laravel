@@ -20,7 +20,7 @@ class CreateArtikelTable extends Migration
             $table->string('dachzeile');
             $table->string('ueberschrift');
             $table->string('teasertext');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
