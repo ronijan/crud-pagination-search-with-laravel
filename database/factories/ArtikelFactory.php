@@ -2,6 +2,7 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
+use App\Artikel;
 use App\User;
 use Faker\Generator as Faker;
 use Illuminate\Support\Str;
@@ -17,11 +18,12 @@ use Illuminate\Support\Str;
 |
 */
 
-$factory->define(\App\Artikel::class, function (Faker $faker) {
+$factory->define(Artikel::class, function (Faker $faker) {
     return [
-        'teaserbild' => $faker->image(),
-        'dachzeile' => $faker->jobTitle,
-        'ueberschrift' => $faker->title,
-        'teasertext' => $faker->text
+        'user_id' => factory(App\User::class),
+        'teaserbild' => $faker->imageUrl(),
+        'dachzeile' => $faker->text,
+        'ueberschrift' => $faker->jobTitle,
+        'teasertext' => $faker->paragraph
     ];
 });
