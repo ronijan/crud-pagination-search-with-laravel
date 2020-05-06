@@ -47,7 +47,7 @@ class ArtikelController extends Controller
         return view('articles.edit')->with('article', $article);
     }
 
-    public function update(Request $request, Artikel $articles)
+    public function update(Request $request, $id)
     {
         $request->validate([
             'teaserbild' => 'required',
@@ -57,7 +57,7 @@ class ArtikelController extends Controller
         ]);
 
         $update = ['teaserbild' => $request->teaserbild, 'ueberschrift' => $request->ueberschrift, 'teasertext' => $request->teasertext];
-        Artikel::where('id',$articles)->update($update);
+        Artikel::where('id',$id)->update($update);
 
         return Redirect::to('articles')
             ->with('success','Great! articles updated successfully');
