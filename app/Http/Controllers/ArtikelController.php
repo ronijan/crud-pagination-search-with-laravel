@@ -4,79 +4,69 @@ namespace App\Http\Controllers;
 
 use App\Artikel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class ArtikelController extends Controller
 {
     public function index()
     {
-        $articles = Artikel::all();
+        $articles = Artikel::query()->orderBy('id', 'desc')->paginate(8);
 
-        return view('welcome', compact('articles', $articles));
+        return view('articles.index', compact('articles', $articles));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return view('articles.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'teaserbild' => 'required',
+            'dachzeile' => 'required',
+            'ueberschrift' => 'required',
+            'teasertext' => 'required',
+        ]);
+
+        Artikel::create($request->all());
+
+        return Redirect::to('articles')
+            ->with('success','Greate! Artikel created successfully.');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Artikel  $artikel
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Artikel $artikel)
+    public function show($id)
     {
-        //
+        $article = Artikel::query()->findOrFail($id);
+        return view('articles.show')->with('article', $article);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Artikel  $artikel
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Artikel $artikel)
+    public function edit($id)
     {
-        //
+        $article = Artikel::query()->findOrFail($id);
+        return view('articles.edit')->with('article', $article);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Artikel  $artikel
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Artikel $artikel)
+    public function update(Request $request, Artikel $articles)
     {
-        //
+        $request->validate([
+            'teaserbild' => 'required',
+            'dachzeile' => 'required',
+            'ueberschrift' => 'required',
+            'teasertext' => 'required',
+        ]);
+
+        $update = ['teaserbild' => $request->teaserbild, 'ueberschrift' => $request->ueberschrift, 'teasertext' => $request->teasertext];
+        Artikel::where('id',$articles)->update($update);
+
+        return Redirect::to('articles')
+            ->with('success','Great! articles updated successfully');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Artikel  $artikel
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Artikel $artikel)
+    public function destroy($id)
     {
-        //
+        Artikel::where('id',$id)->delete();
+
+        return Redirect::to('articles')->with('success','articles deleted successfully');
     }
 }
