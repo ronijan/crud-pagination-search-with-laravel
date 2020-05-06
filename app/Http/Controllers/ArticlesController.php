@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Artikel;
+use App\Article;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
-class ArtikelController extends Controller
+class ArticlesController extends Controller
 {
     public function index()
     {
-        $articles = Artikel::query()->orderBy('id', 'desc')->paginate(8);
+        $articles = Article::query()->orderBy('id', 'desc')->paginate(8);
 
         return view('articles.index', compact('articles', $articles));
     }
@@ -29,21 +29,20 @@ class ArtikelController extends Controller
             'teasertext' => 'required',
         ]);
 
-        Artikel::create($request->all());
+        Article::create($request->all());
 
-        return Redirect::to('articles')
-            ->with('success','Greate! Artikel created successfully.');
+        return Redirect::to('articles');
     }
 
     public function show($id)
     {
-        $article = Artikel::query()->findOrFail($id);
+        $article = Article::query()->findOrFail($id);
         return view('articles.show')->with('article', $article);
     }
 
     public function edit($id)
     {
-        $article = Artikel::query()->findOrFail($id);
+        $article = Article::query()->findOrFail($id);
         return view('articles.edit')->with('article', $article);
     }
 
@@ -57,15 +56,14 @@ class ArtikelController extends Controller
         ]);
 
         $update = ['teaserbild' => $request->teaserbild, 'ueberschrift' => $request->ueberschrift, 'teasertext' => $request->teasertext];
-        Artikel::where('id',$id)->update($update);
+        Article::where('id',$id)->update($update);
 
-        return Redirect::to('articles')
-            ->with('success','Great! articles updated successfully');
+        return Redirect::to('articles');
     }
 
     public function destroy($id)
     {
-        Artikel::where('id',$id)->delete();
+        Article::where('id',$id)->delete();
 
         return Redirect::to('articles')->with('success','articles deleted successfully');
     }
