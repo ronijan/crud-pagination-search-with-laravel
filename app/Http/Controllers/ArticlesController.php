@@ -23,6 +23,8 @@ class ArticlesController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'title' => 'required',
+            'author' => 'required',
             'teaserbild' => 'required',
             'dachzeile' => 'required',
             'ueberschrift' => 'required',
@@ -48,15 +50,23 @@ class ArticlesController extends Controller
 
     public function update(Request $request, $id)
     {
+
         $request->validate([
+            'title' => 'required',
+            'author' => 'required',
             'teaserbild' => 'required',
             'dachzeile' => 'required',
             'ueberschrift' => 'required',
             'teasertext' => 'required',
         ]);
 
-        $update = ['teaserbild' => $request->teaserbild, 'ueberschrift' => $request->ueberschrift, 'teasertext' => $request->teasertext];
-        Article::where('id',$id)->update($update);
+        $update = [
+            'title' => $request->title,
+            'author' => $request->author,
+            'teaserbild' => $request->teaserbild,
+            'ueberschrift' => $request->ueberschrift,
+            'teasertext' => $request->teasertext];
+        Article::query()->where('id',$id)->update($update);
 
         return Redirect::to('articles');
     }

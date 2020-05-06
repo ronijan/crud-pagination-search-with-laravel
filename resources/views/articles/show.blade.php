@@ -7,16 +7,17 @@
 
     <div class="row">
         <div class="col-md-12">
-            <h2><b>Dachzeile:</b>{{$article->dachzeile}}</h2>
-            <h4><b>Überschrift:</b>{{$article->ueberschrift}}</h4>
-
-            <p><b>TeaseText: </b>{{$article->teasertext}}</p>
-
+{{--            dachzeile--}}
+            <h2>{{$article->dachzeile}}</h2>
+{{--            Überschrift--}}
+            <h4>{{$article->ueberschrift}}</h4>
+{{--            Title Author --}}
+            <p>{{$article->title}} {{$article->author}}</p>
+{{--            TeaseText--}}
+            <p>{{$article->teasertext}}</p>
 {{--             <img src="{{$article->teaserbild}}" alt="test bild">--}}
-
-            <p><b>Created At:</b> {{$article->created_at}}</p>
-            <p><b>Updated At:</b> {{$article->updated_at}}</p>
-
+            <p><b>Created at:</b> {{$article->created_at}}</p>
+            <p><b>Updated at:</b> {{$article->updated_at}}</p>
         </div>
     </div>
 

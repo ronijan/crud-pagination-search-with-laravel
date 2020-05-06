@@ -11,6 +11,8 @@
                 <thead>
                 <tr>
                     <th scope="col">#</th>
+                    <th scope="col">Titel</th>
+                    <th scope="col">Author</th>
                     <th scope="col">Teaserbild</th>
                     <th scope="col">Dachzeile</th>
                     <th scope="col">Überschrift</th>
@@ -25,6 +27,8 @@
                 @foreach($articles as $article)
                     <tr>
                         <th scope="row">{{$article->id}}</th>
+                        <td>{{$article->title}}</td>
+                        <td>{{$article->author}}</td>
                         <td>{{$article->teaserbild}}</td>
                         <td>{{$article->dachzeile}}</td>
                         <td>{{$article->ueberschrift}}</td>

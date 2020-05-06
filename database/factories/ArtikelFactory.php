@@ -21,8 +21,10 @@ use Illuminate\Support\Str;
 $factory->define(Article::class, function (Faker $faker) {
     return [
         'user_id' => factory(App\User::class),
+        'title' => $faker->title(),
+        'author' => $faker->name(),
         'teaserbild' => $faker->imageUrl(),
-        'dachzeile' => $faker->title,
+        'dachzeile' => $faker->jobTitle,
         'ueberschrift' => $faker->jobTitle,
         'teasertext' => $faker->paragraph
     ];
