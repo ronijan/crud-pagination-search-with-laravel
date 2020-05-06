@@ -2,19 +2,20 @@
 
 @section('content')
 
-    <h4>View Article</h4>
-    <hr>
+    <h2 class="text-left">Article Details</h2>
+    <hr class="pb-3">
+
     <div class="row">
         <div class="col-md-12">
-            <h2>{{$article->dachzeile}}</h2>
-            <h4>{{$article->ueberschrift}}</h4>
+            <h2><b>Dachzeile:</b>{{$article->dachzeile}}</h2>
+            <h4><b>Überschrift:</b>{{$article->ueberschrift}}</h4>
 
-            <p>{{$article->teasertext}}</p>
+            <p><b>TeaseText: </b>{{$article->teasertext}}</p>
 
-            {{-- <img src="{{$article->teaserbild}}" alt="test bild">--}}
+{{--             <img src="{{$article->teaserbild}}" alt="test bild">--}}
 
-            <p>Created At: {{$article->created_at}}</p>
-            <p>Updated At: {{$article->updated_at}}</p>
+            <p><b>Created At:</b> {{$article->created_at}}</p>
+            <p><b>Updated At:</b> {{$article->updated_at}}</p>
 
         </div>
     </div>

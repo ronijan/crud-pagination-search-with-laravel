@@ -1,45 +1,36 @@
 @extends('layouts.layout')
 
 @section('content')
-    <h2 style="margin-top: 12px;" class="text-center">Add Product</h2>
-    <br>
+    <div class="row">
+        <div class="col-md-6">
+            <h2 class="text-left">Add new Article</h2>
+            <hr class="pb-3">
 
-    <form action="{{ route('articles.store') }}" method="POST" name="add_product">
-        {{ csrf_field() }}
+            <form action="{{ route('articles.store') }}" method="POST">
+                {{ csrf_field() }}
+                <div class="form-group">
+                    <label for="teaserbild">Teaserbild</label>
+                    <input type="text" name="teaserbild" id="teaserbild" class="form-control"
+                           placeholder="Enter Teaserbild">
 
-        <div class="row">
-            <div class="col-md-12">
-                <div class="form-group">
-                    <strong>Teaserbild</strong>
-                    <input type="text" name="teaserbild" class="form-control" placeholder="Enter Teaserbild">
-                    <span class="text-danger">{{ $errors->first('teaserbild') }}</span>
+                    <div class="form-group">
+                        <label for="dachzeile">Dachzeile</label>
+                        <input type="text" name="dachzeile" id="dachzeile" class="form-control"
+                               placeholder="Enter Dachzeile">
+                    </div>
+                    <div class="form-group">
+                        <label for="ueberschrift">Überschrift</label>
+                        <input type="text" name="ueberschrift" id="ueberschrift" class="form-control"
+                               placeholder="Enter Überschrift">
+                    </div>
+                    <div class="form-group">
+                        <label for="teasertext">Teasertext</label>
+                        <textarea class="form-control" col="4" name="teasertext" id="teasertext"
+                                  placeholder="Enter Teasertext"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add new Article</button>
                 </div>
-            </div>
-            <div class="col-md-12">
-                <div class="form-group">
-                    <strong>Dachzeile</strong>
-                    <input type="text" name="dachzeile" class="form-control" placeholder="Enter Dachzeile">
-                    <span class="text-danger">{{ $errors->first('dachzeile') }}</span>
-                </div>
-            </div>
-            <div class="col-md-12">
-                <div class="form-group">
-                    <strong>Teasertext</strong>
-                    <textarea class="form-control" col="4" name="teasertext" placeholder="Enter Teasertext"></textarea>
-                    <span class="text-danger">{{ $errors->first('teasertext') }}</span>
-                </div>
-            </div>
-            <div class="col-md-12">
-                <div class="form-group">
-                    <strong>Überschrift</strong>
-                    <textarea class="form-control" col="4" name="ueberschrift" placeholder="Enter Überschrift"></textarea>
-                    <span class="text-danger">{{ $errors->first('ueberschrift') }}</span>
-                </div>
-            </div>
-            <div class="col-md-12">
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </div>
+            </form>
         </div>
-
-    </form>
+    </div>
 @endsection

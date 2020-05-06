@@ -22,7 +22,7 @@ $factory->define(Article::class, function (Faker $faker) {
     return [
         'user_id' => factory(App\User::class),
         'teaserbild' => $faker->imageUrl(),
-        'dachzeile' => $faker->text,
+        'dachzeile' => $faker->title,
         'ueberschrift' => $faker->jobTitle,
         'teasertext' => $faker->paragraph
     ];
