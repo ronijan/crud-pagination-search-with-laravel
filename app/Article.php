@@ -9,6 +9,7 @@ use Illuminate\Support\Str;
 class Article extends Model
 {
     protected $guarded = [];
+    protected $attributes = [];
 
     public function article()
     {
@@ -23,20 +24,5 @@ class Article extends Model
     public function getUpdatedAtAttribute($date)
     {
         return Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('Y-m-d');
-    }
-
-    public function getTeasertextAttribute($date)
-    {
-        return Str::limit($date, $limit = 30, $end = '...');
-    }
-
-    public function getUeberschriftAttribute($date)
-    {
-        return Str::limit($date, $limit = 15, $end = '...');
-    }
-
-    public function getTeaserbildAttribute($date)
-    {
-        return Str::limit($date, $limit = 15, $end = '...');
     }
 }
