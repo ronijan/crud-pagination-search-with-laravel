@@ -1,5 +1,3 @@
-## Willkommen auf dem Affenfels
-
 ### TESTAUFGABE
 Für die Testaufgab richt Di bitt eine grundlegende Standardinstallation ein. Wir empfehlen hierfür XAMPP und PHPStorm als
 IDE.
