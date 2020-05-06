@@ -1,21 +1,8 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Affenfels Test Aufgabe</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-</head>
-<body>
+@extends('layouts.layout')
 
-<div class="container mb-5">
-    <div class="row mt-5">
-        <div class="col-md-12">
-
+@section('content')
             <h3>Alle Artikeln</h3>
+            <a href="{{ route('articles.create') }}" class="btn btn-success mb-2">Add New Article</a>
             <table class="table table-hover">
                 <thead>
                 <tr>
@@ -25,6 +12,7 @@
                     <th scope="col">Überschrift</th>
                     <th scope="col">Teasertext</th>
                     <th scope="col">Actions</th>
+                    <th scope="col"></th>
                     <th scope="col"></th>
                 </tr>
                 </thead>
@@ -38,19 +26,23 @@
                         <td>{{$article->ueberschrift}}</td>
                         <td>{{$article->teasertext}}</td>
                         <td class="text-right">
-                            <a href="#">view</a>
+                            <a href="{{{route('articles.show', $article->id)}}}" class="btn btn-info">view</a>
+                        </td>   <td class="text-right">
+                            <a href="{{{route('articles.edit', $article->id)}}}" class="btn btn-info">edit</a>
                         </td>
+
                         <td class="text-right">
-                            <a href="#" class="text-danger">delete</a>
+                            <form action="{{ route('articles.destroy', $article->id)}}" method="post">
+                                {{ csrf_field() }}
+                                @method('DELETE')
+                                <button class="btn btn-danger" type="submit">Delete</button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach
 
                 </tbody>
             </table>
-        </div>
-    </div>
-</div>
 
-</body>
-</html>
+            {{ $articles->links() }}
+@endsection
