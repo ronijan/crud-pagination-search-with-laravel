@@ -8,7 +8,7 @@ class Artikel extends Model
 {
     protected $guarded = [];
 
-    public function artikel()
+    public function article()
     {
         return $this->belongsTo('App\User');
     }
