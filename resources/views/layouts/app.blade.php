@@ -7,6 +7,39 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>TestAufgabe</title>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        form.search input[type=text] {
+            padding: 7px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            float: left;
+            width: 80% ;
+            background: #f1f1f1;
+        }
+
+        form.search button {
+            float: left;
+            width: 20%;
+            padding: 6px;
+            background: #2196F3;
+            color: white;
+            font-size: 17px;
+            border: 1px solid grey;
+            border-left: none;
+            cursor: pointer;
+        }
+
+        form.search button:hover {
+            background: #0b7dda;
+        }
+
+        form.search::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+    </style>
 </head>
 <body>
 <div class="container">

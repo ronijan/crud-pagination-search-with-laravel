@@ -1,10 +1,23 @@
-@extends('layouts.layout')
+@extends('layouts.app')
 
 @section('content')
+
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <h3>All Articles</h3>
+        </div>
+        <div class="col-md-6 float-right">
+            <form class="search float-right" action="{{route('search')}}" method="GET">
+                @csrf
+                <label for="search"></label>
+                <input type="text" id="search" placeholder="Search.." name="search">
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+        </div>
+    </div>
     <div class="row pb-5">
         <div class="col-md-12">
-            <h3>All Articles</h3>
-            <div class="float-right pb-3">
+            <div class="pb-3">
                 <a href="{{ route('articles.create') }}" class="btn btn-success mb-2">Add New Article</a>
             </div>
             <table class="table table-hover">
@@ -66,7 +79,8 @@
                                                 Are you sure to delete this Article?
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                                                <button type="button" class="btn btn-secondary"
+                                                        data-dismiss="modal">
                                                     Close
                                                 </button>
                                                 <button type="submit" class="btn btn-danger">Delete Article</button>
