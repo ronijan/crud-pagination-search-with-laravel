@@ -5,6 +5,14 @@
     <div class="row mb-3">
         <div class="col-md-6">
             <h3>All Articles</h3>
+
+
+{{--            <form action="{{route('filter')}}" method="GET">--}}
+{{--                <input type="text" name="dachzeile">--}}
+{{--                <button type="submit" name="filter">Apply Filter</button>--}}
+{{--            </form>--}}
+
+
         </div>
         <div class="col-md-6 float-right">
             <form class="search float-right" action="{{route('search')}}" method="GET">
@@ -47,10 +55,10 @@
                         <td>{{$article->ueberschrift}}</td>
                         <td>{{$article->teasertext}}</td>
                         <td class="text-right pr-0">
-                            <a href="{{{route('articles.show', $article->id)}}}" class="btn btn-secondary">view</a>
+                            <a href="{{{route('articles.show', $article->id)}}}" class="btn btn-secondary btn-sm">view</a>
                         </td>
                         <td class="text-right pr-0">
-                            <a href="{{{route('articles.edit', $article->id)}}}" class="btn btn-secondary">edit</a>
+                            <a href="{{{route('articles.edit', $article->id)}}}" class="btn btn-secondary btn-sm">edit</a>
                         </td>
 
                         <td class="">
@@ -58,7 +66,7 @@
                             {{ csrf_field() }}
                             @method('DELETE')
                             <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-danger" data-toggle="modal"
+                                <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
                                         data-target="#exampleModal">
                                     delete
                                 </button>
@@ -79,11 +87,8 @@
                                                 Are you sure to delete this Article?
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary"
-                                                        data-dismiss="modal">
-                                                    Close
-                                                </button>
-                                                <button type="submit" class="btn btn-danger">Delete Article</button>
+                                                <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn btn-danger btn-sm">Delete Article</button>
                                             </div>
                                         </div>
                                     </div>

@@ -22,7 +22,7 @@ class ArticlesController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
+       $data = $request->validate([
             'title' => 'required',
             'author' => 'required',
             'teaserbild' => 'required',
@@ -31,7 +31,7 @@ class ArticlesController extends Controller
             'teasertext' => 'required',
         ]);
 
-        Article::create($request->all());
+        Article::create($data);
 
         return Redirect::to('articles');
     }
@@ -66,6 +66,7 @@ class ArticlesController extends Controller
             'teaserbild' => $request->teaserbild,
             'ueberschrift' => $request->ueberschrift,
             'teasertext' => $request->teasertext];
+
         Article::query()->where('id',$id)->update($update);
 
         return Redirect::to('articles');

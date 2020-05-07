@@ -16,4 +16,12 @@ class SearchController extends Controller
 
         return 'No Results!.';
     }
+
+//    public function filter()
+//    {
+//        $dachzeile = request()->get('dachzeile');
+//        $articles = Article::query()->where('dachzeile', '=', $dachzeile)->get();
+//
+//        return view('search', compact('articles', $articles));
+//    }
 }
