@@ -50,7 +50,6 @@ class ArticlesController extends Controller
 
     public function update(Request $request, $id)
     {
-
         $request->validate([
             'title' => 'required',
             'author' => 'required',
@@ -60,14 +59,14 @@ class ArticlesController extends Controller
             'teasertext' => 'required',
         ]);
 
-        $update = [
+        $data = [
             'title' => $request->title,
             'author' => $request->author,
             'teaserbild' => $request->teaserbild,
             'ueberschrift' => $request->ueberschrift,
             'teasertext' => $request->teasertext];
 
-        Article::query()->where('id',$id)->update($update);
+        Article::query()->where('id',$id)->update($data);
 
         return Redirect::to('articles');
     }
