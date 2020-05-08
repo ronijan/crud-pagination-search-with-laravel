@@ -10,7 +10,7 @@ class ArticlesController extends Controller
 {
     public function index()
     {
-        $articles = Article::query()->orderBy('id', 'desc')->paginate(8);
+        $articles = Article::query()->orderBy('id', 'desc')->paginate(3);
 
         return view('articles.index', compact('articles', $articles));
     }
