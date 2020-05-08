@@ -76,6 +76,6 @@ class ArticlesController extends Controller
     {
         Article::where('id',$id)->delete();
 
-        return Redirect::to('articles')->with('success','articles deleted successfully');
+        return Redirect::to('articles');
     }
 }
