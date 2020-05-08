@@ -11,8 +11,8 @@ class SearchController extends Controller
         $search = request()->input('search');
 
         $articles = Article::query()
-            ->orWhere('title', 'LIKE', '%' . $search . '%')
-            ->where('author', 'LIKE', '%' . $search . '%')
+            ->where('title', 'LIKE', '%' . $search . '%')
+            ->orWhere('author', 'LIKE', '%' . $search . '%')
             ->orWhere('big_title', 'LIKE', '%' . $search . '%')
             ->orWhere('sub_title', 'LIKE', '%' . $search . '%')
             ->orWhere('description', 'LIKE', '%' . $search . '%')
