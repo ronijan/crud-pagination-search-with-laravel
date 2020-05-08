@@ -18,10 +18,10 @@ class CreateArticlesTable extends Migration
             $table->unsignedBigInteger('user_id')->nullable();
             $table->string('title');
             $table->string('author');
-            $table->string('teaserbild')->default(null);
-            $table->string('dachzeile');
-            $table->string('ueberschrift');
-            $table->text('teasertext');
+            $table->string('image')->default(null);
+            $table->string('big-title');
+            $table->string('sub-title');
+            $table->text('description');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });

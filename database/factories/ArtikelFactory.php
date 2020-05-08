@@ -23,9 +23,9 @@ $factory->define(Article::class, function (Faker $faker) {
         'user_id' => factory(App\User::class),
         'title' => $faker->title(),
         'author' => $faker->name(),
-        'teaserbild' => $faker->imageUrl(),
-        'dachzeile' => $faker->jobTitle,
-        'ueberschrift' => $faker->jobTitle,
-        'teasertext' => $faker->paragraph
+        'image' => $faker->imageUrl(),
+        'big-title' => $faker->jobTitle,
+        'sub-title' => $faker->jobTitle,
+        'description' => $faker->paragraph
     ];
 });
