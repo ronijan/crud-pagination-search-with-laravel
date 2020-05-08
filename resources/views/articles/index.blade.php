@@ -39,9 +39,9 @@
                     <th scope="col">Dachzeile</th>
                     <th scope="col">Überschrift</th>
                     <th scope="col">Teasertext</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
                     <th scope="col">Actions</th>
-                    <th scope="col"></th>
-                    <th scope="col"></th>
                 </tr>
                 </thead>
                 <tbody>
