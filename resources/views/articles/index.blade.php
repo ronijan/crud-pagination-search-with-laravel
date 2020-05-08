@@ -51,7 +51,7 @@
                         <th scope="row">{{$article->id}}</th>
                         <td>{{$article->title}}</td>
                         <td>{{$article->author}}</td>
-                        <td>{{$article->teaserbild}}</td>
+                        <td><img src="{{$article->teaserbild}}" width="42px"  height="42px" alt=""></td>
                         <td>{{$article->dachzeile}}</td>
                         <td>{{$article->ueberschrift}}</td>
                         <td>{{$article->teasertext}}</td>
