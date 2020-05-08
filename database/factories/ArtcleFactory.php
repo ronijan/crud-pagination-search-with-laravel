@@ -24,8 +24,8 @@ $factory->define(Article::class, function (Faker $faker) {
         'title' => $faker->title(),
         'author' => $faker->name(),
         'image' => $faker->imageUrl(),
-        'big-title' => $faker->jobTitle,
-        'sub-title' => $faker->jobTitle,
+        'big_title' => $faker->jobTitle,
+        'sub_title' => $faker->jobTitle,
         'description' => $faker->paragraph
     ];
 });

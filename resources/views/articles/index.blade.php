@@ -4,16 +4,8 @@
 
     <div class="row mb-3">
         <div class="col-md-6">
-            <h3 class="mb-4">Test-Aufgabe</h3>
-            <h3>All Articles</h3>
-
-
-{{--            <form action="{{route('filter')}}" method="GET">--}}
-{{--                <input type="text" name="dachzeile">--}}
-{{--                <button type="submit" name="filter">Apply Filter</button>--}}
-{{--            </form>--}}
-
-
+            <h3 class="mb-4">CRUD, Pagination, Search With Laravel</h3>
+            <hr>
         </div>
         <div class="col-md-6 float-right">
             <form class="search float-right" action="{{route('search')}}" method="GET">
@@ -26,19 +18,20 @@
     </div>
     <div class="row pb-5">
         <div class="col-md-12">
-            <div class="pb-3">
+            <h3>All Articles</h3>
+            <div class="pb-3 float-right">
                 <a href="{{ route('articles.create') }}" class="btn btn-success mb-2">Add New Article</a>
             </div>
             <table class="table table-hover">
                 <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Titel</th>
+                    <th scope="col">Title</th>
                     <th scope="col">Author</th>
-                    <th scope="col">Teaserbild</th>
-                    <th scope="col">Dachzeile</th>
-                    <th scope="col">Überschrift</th>
-                    <th scope="col">Teasertext</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Head</th>
+                    <th scope="col">Sub-title</th>
+                    <th scope="col">Description</th>
                     <th scope="col"></th>
                     <th scope="col"></th>
                     <th scope="col">Actions</th>
@@ -51,10 +44,10 @@
                         <th scope="row">{{$article->id}}</th>
                         <td>{{$article->title}}</td>
                         <td>{{$article->author}}</td>
-                        <td><img src="{{$article->teaserbild}}" width="42px"  height="42px" alt=""></td>
-                        <td>{{$article->dachzeile}}</td>
-                        <td>{{$article->ueberschrift}}</td>
-                        <td>{{$article->teasertext}}</td>
+                        <td><img src="{{$article->image}}" width="42px"  height="42px" alt=""></td>
+                        <td>{{$article->big_title}}</td>
+                        <td>{{$article->sub_title}}</td>
+                        <td>{{$article->description}}</td>
                         <td class="text-right pr-0">
                             <a href="{{{route('articles.show', $article->id)}}}" class="btn btn-secondary btn-sm">view</a>
                         </td>

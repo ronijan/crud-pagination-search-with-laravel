@@ -17,7 +17,7 @@ class ArticlesController extends Controller
      */
     public function index()
     {
-        $articles = Article::query()->orderBy('id', 'desc')->paginate(3);
+        $articles = Article::query()->orderBy('id', 'desc')->paginate(4);
 
         return view('articles.index', compact('articles', $articles));
     }
@@ -36,13 +36,13 @@ class ArticlesController extends Controller
      */
     public function store(Request $request)
     {
-       $data = $request->validate([
+        $data = $request->validate([
             'title' => 'required|string',
             'author' => 'required|string',
-            'teaserbild' => 'required|string',
-            'dachzeile' => 'required|string',
-            'ueberschrift' => 'required|string',
-            'teasertext' => 'required|string',
+            'image' => 'required|string',
+            'big_title' => 'required|string',
+            'sub_title' => 'required|string',
+            'description' => 'required|string',
         ]);
 
         Article::create($data);
@@ -51,12 +51,11 @@ class ArticlesController extends Controller
     }
 
     /**
-     * @param $id
+     * @param Article $article
      * @return Application|Factory|View
      */
-    public function show($id)
+    public function show(Article $article)
     {
-        $article = Article::query()->findOrFail($id);
         return view('articles.show')->with('article', $article);
     }
 
@@ -67,6 +66,7 @@ class ArticlesController extends Controller
     public function edit($id)
     {
         $article = Article::query()->findOrFail($id);
+
         return view('articles.edit')->with('article', $article);
     }
 
@@ -77,23 +77,16 @@ class ArticlesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
+        $data = $request->validate([
             'title' => 'required|string',
             'author' => 'required|string',
-            'teaserbild' => 'required|string',
-            'dachzeile' => 'required|string',
-            'ueberschrift' => 'required|string',
-            'teasertext' => 'required|string',
+            'image' => 'required|string',
+            'big_title' => 'required|string',
+            'sub_title' => 'required|string',
+            'description' => 'required|string',
         ]);
 
-        $data = [
-            'title' => $request->title,
-            'author' => $request->author,
-            'teaserbild' => $request->teaserbild,
-            'ueberschrift' => $request->ueberschrift,
-            'teasertext' => $request->teasertext];
-
-        Article::query()->where('id',$id)->update($data);
+        Article::query()->where('id', $id)->update($data);
 
         return Redirect::to('articles');
     }
@@ -104,7 +97,7 @@ class ArticlesController extends Controller
      */
     public function destroy($id)
     {
-        Article::where('id',$id)->delete();
+        Article::where('id', $id)->delete();
 
         return Redirect::to('articles');
     }

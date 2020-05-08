@@ -19,8 +19,8 @@ class CreateArticlesTable extends Migration
             $table->string('title');
             $table->string('author');
             $table->string('image')->default(null);
-            $table->string('big-title');
-            $table->string('sub-title');
+            $table->string('big_title');
+            $table->string('sub_title');
             $table->text('description');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();

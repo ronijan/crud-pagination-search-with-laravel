@@ -5,6 +5,7 @@ namespace App;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
+
 /**
  * @method static create(array $data)
  * @method static where(string $string, $id)
