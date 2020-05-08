@@ -18,7 +18,5 @@ Route::get('/', function () {
 });
 
 Route::resource('/articles', 'ArticlesController');
-
-
 Route::get('/search', 'SearchController@search')->name('search');
 //Route::get('/filter', 'SearchController@filter')->name('filter');

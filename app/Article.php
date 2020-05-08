@@ -4,12 +4,10 @@ namespace App;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Str;
 
 class Article extends Model
 {
     protected $guarded = [];
-    protected $attributes = [];
 
     public function article()
     {
