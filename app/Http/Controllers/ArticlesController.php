@@ -23,12 +23,12 @@ class ArticlesController extends Controller
     public function store(Request $request)
     {
        $data = $request->validate([
-            'title' => 'required',
-            'author' => 'required',
-            'teaserbild' => 'required',
-            'dachzeile' => 'required',
-            'ueberschrift' => 'required',
-            'teasertext' => 'required',
+            'title' => 'required|string',
+            'author' => 'required|string',
+            'teaserbild' => 'required|string',
+            'dachzeile' => 'required|string',
+            'ueberschrift' => 'required|string',
+            'teasertext' => 'required|string',
         ]);
 
         Article::create($data);
@@ -51,12 +51,12 @@ class ArticlesController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'title' => 'required',
-            'author' => 'required',
-            'teaserbild' => 'required',
-            'dachzeile' => 'required',
-            'ueberschrift' => 'required',
-            'teasertext' => 'required',
+            'title' => 'required|string',
+            'author' => 'required|string',
+            'teaserbild' => 'required|string',
+            'dachzeile' => 'required|string',
+            'ueberschrift' => 'required|string',
+            'teasertext' => 'required|string',
         ]);
 
         $data = [
