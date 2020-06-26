@@ -1,7 +1,7 @@
 ### CRUD, Pagination, Search With Laravel
 
 * $ `php artisan key:generate`
-* $ `composer install`
+* $ `composer install -o`
 * copy `.env.example` into `.env`
 * change db configuration
 * $ `php artisan migrate --seed`
