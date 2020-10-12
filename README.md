@@ -1,8 +1,8 @@
 ### CRUD, Pagination, Search With Laravel Framework
 
-*  $ `php artisan key:generate`
-*  $ `composer install -o`
-*  copy `.env.example` into `.env`
+*  Generate a key for App using cmd $ `php artisan key:generate`
+*  Need to istall composer $ `composer install -o`
+*  Modify DB connection `.env.example` into `.env`
 *  change db configuration
 *  $ `php artisan migrate --seed`
 *  $ `php artisan serve`
